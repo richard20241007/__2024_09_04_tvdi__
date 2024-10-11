@@ -16,7 +16,7 @@ py檔就是一個model
 
 
 """
-
+#自訂常數
 
 MON = 1
 TUE = 2
@@ -26,6 +26,7 @@ FRI = 5
 SAT = 6
 SUN = 7
 
+#自訂 class
 class Person(object):
     #自訂的init,建立內建的attribute
     def __init__(self,name:str,age:int): #type hint
@@ -79,4 +80,18 @@ class Student(Person):   #繼承Person
 
 
 
+
+
+#自訂FUNCTION
+"""
+有一個function 叫做 get_person 有兩個參數 name 跟 age 會
+回傳出一個 class Person 的實體
+"""
+def get_person(name:str,age:int)->Person:
+    return Person(name,age)
+
+
+
+def get_student(name1:str,age1:int,chinese=60,english=60,math=60)->Student:
+    return Student(name=name1,age=age1,chinese=chinese,english=english,math=math)
 
