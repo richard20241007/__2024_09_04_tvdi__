@@ -18,8 +18,11 @@ class Window(tk.Tk):
         super().__init__(**kwargs)
         self.title('Lesson 4')
         self.geometry('500x500')
+        style = ttk.Style(self)
+        style.configure('TLabel',font=('Helvetica',36))
         message = ttk.Label(self,text="Hello Tkinter ! ~~") #建立區域變數
         message.pack()
+        print(message.winfo_class()) # 出現 TLabel 就是其中一個theme
 
         
 
