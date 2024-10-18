@@ -18,26 +18,24 @@ class Window(tk.Tk):
 class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)  #執行父類別的init 不用放self
+        self.title("Lesson04")
+        self.geometry("500x500+25+25")
+        lb1 = tk.Label(self,text='Account')
+        lb1.pack()
 
+        text = tk.StringVar()
+        ent1 = tk.Entry(self,textvariable=text,bg='yellow')
+        ent1.pack(fill='x',expand=True)
+
+        def click():
+            pass
+        btn1 = tk.Button(self,text='Click me',command=click)
+        btn1.pack()
 
 
 def main():
     root = Window()
-    print(type(root))       #type 為 window
-    root.title("Lesson04")
-    root.geometry("500x500+25+25")
-
-    lb1 = tk.Label(root,text='Account')
-    lb1.pack()
-
-    text = tk.StringVar()
-    ent1 = tk.Entry(root,textvariable=text,bg='yellow')
-    ent1.pack(fill='x',expand=True)
-
-    def click():
-        pass
-    btn1 = tk.Button(root,text='Click me',command=click)
-    btn1.pack()
+    # print(type(root))       #type 為 window
     root.mainloop()     #有個Tk實體方法叫做 mainloop()
 
 
