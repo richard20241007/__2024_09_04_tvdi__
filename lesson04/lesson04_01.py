@@ -1,25 +1,25 @@
-import requests
-from requests import Response
+# import requests
+# from requests import Response
 
 
 
-def main():
-    url = 'https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=5481753E-52AF-40DA-9A8A-9E192B245E13'
-    res:Response = requests.request('GET',url)
+# def main():
+#     url = 'https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=5481753E-52AF-40DA-9A8A-9E192B245E13'
+#     res:Response = requests.request('GET',url)
 
-    if res.status_code ==200:
-        print("Download Successfully")
-        res.encoding='utf-8'
-        content:str = res.text
-        with open('a1.csv','w',encoding='utf8',newline='') as file:
-            print(type(file))       #TextWrapper 的實體
-            file.write(content)
+#     if res.status_code ==200:
+#         print("Download Successfully")
+#         res.encoding='utf-8'
+#         content:str = res.text
+#         with open('a1.csv','w',encoding='utf8',newline='') as file:
+#             print(type(file))       #TextWrapper 的實體
+#             file.write(content)
 
-    else:
-        print("Download Fail")
+#     else:
+#         print("Download Fail")
 
-if __name__ =='__main__':
-    main()
+# if __name__ =='__main__':
+#     main()
 
 
 """
@@ -35,3 +35,44 @@ __main__ 是一個特殊的字串，用於標識當前運行的 Python 腳本。
 """
 
 
+
+"""
+在internet 上 ，其實有很多問題
+但在正確的網址下還是有可能出問題
+所以最好掛上 try except
+不然程式碼經常會閃退
+try:
+    # 嘗試執行的代碼（可能會引發異常）
+except SomeException as e:
+    # 如果發生了異常，則執行這部分代碼
+else:
+    # 如果沒有發生異常，則執行這部分代碼
+
+"""
+
+
+import requests
+from requests import Response
+
+
+
+def main():
+    url = 'https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=5481753E-52AF-40DA-9A8A-9E192B245E13'
+    
+
+    try:
+        res:Response = requests.request('GET',url)
+        res.raise_for_status()  #回傳404 或 200
+        res.encoding='utf-8'
+        content:str = res.text
+        with open('a1.csv','w',encoding='utf8',newline='') as file:
+            print(type(file))       #TextWrapper 的實體
+            file.write(content)
+
+    except Exception as e:          #不知道有甚麼錯誤就選這個
+        print(e)
+    else:
+        print("Download and save successfully")
+
+if __name__ =='__main__':
+    main()
