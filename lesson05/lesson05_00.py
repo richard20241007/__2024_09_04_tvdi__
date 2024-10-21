@@ -27,10 +27,13 @@ class Window(ThemedTk):
         #==========start of bottmeframe1 ==================
         bottomFrame1 = ttk.Frame(bottomFrame,borderwidth=1,relief="groove",width=500,height=300)
         btn4 = ttk.Button(bottomFrame1,text='botton 04',style='button.TButton')
+        btn4.bind('<ButtonRelease>',self.click456)
         btn4.pack(side='top',expand=True,fill='x',padx=10)
         btn5 = ttk.Button(bottomFrame1,text='botton 05')
+        btn5.bind('<ButtonRelease>',self.click456)
         btn5.pack(side='top',expand=True,fill='x',padx=10,pady=15)
         btn6 = ttk.Button(bottomFrame1,text='botton 06')
+        btn6.bind('<ButtonRelease>',self.click456)
         btn6.pack(side='top',expand=True,fill='x',padx=10,pady=15)
         bottomFrame1.pack(padx=10,pady=10,ipadx=10,ipady=10,expand=True,fill='x',side='left')
          #========== end of bottmeframe1 ==================
@@ -70,11 +73,23 @@ class Window(ThemedTk):
         self.show_lb.config(text='You click btn2 !')
     def click3(self):
         self.show_lb.config(text='You click btn3 !')
-
+    def click456(self,event):
+        self.show_lb.config(text='You click btn4 !')
+        print(event)
+        print(type(event))
+        print(event.x)
+        print(event.y)
+        print(event.width)
+        print(event.widget)   #widget 就是告訴你 這個button 在哪，也等於 這個btn
+        print(event.widget.configure(text =' Wrong !')) #既然是這個btn 表示可以修改
+        #event 表示按我的按鈕
+        #本案例指 btn4 btn5 btn6 
+        #然後 這按鈕回傳到 widget 裡面
+        #因此 這種event 的寫法 並不需要寫 self 
 
 
 def main():
-    window=Window(theme='ark')
+    window=Window(theme='scidpurple')
     window.mainloop()
 
 if __name__=='__main__':
