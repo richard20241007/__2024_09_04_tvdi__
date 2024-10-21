@@ -35,7 +35,6 @@ class Window(ThemedTk):
         ttk.Entry(bottomFrame,textvariable=self.password,show='*').grid(column=1, row=1,pady=10,padx=10)
         
         
-
         cancel_btn = ttk.Button(bottomFrame,text='取消',command=self.cancel_click)
         cancel_btn.grid(column=0,row=2,padx=10,pady=(30,0))
 
@@ -67,3 +66,13 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
+
+
+
