@@ -27,15 +27,19 @@ class Window(ThemedTk):
         #==========start of bottmeframe1 ==================
         bottomFrame1 = ttk.Frame(bottomFrame,borderwidth=1,relief="groove",width=500,height=300)
         btn4 = ttk.Button(bottomFrame1,text='botton 04',style='button.TButton')
-        btn4.bind('<ButtonRelease>',self.click456)
+        btn4.bind('<Motion>',self.click456)
         btn4.pack(side='top',expand=True,fill='x',padx=10)
+
         btn5 = ttk.Button(bottomFrame1,text='botton 05')
-        btn5.bind('<ButtonRelease>',self.click456)
+        btn5.bind('<Enter>',self.click456)
         btn5.pack(side='top',expand=True,fill='x',padx=10,pady=15)
+
         btn6 = ttk.Button(bottomFrame1,text='botton 06')
         btn6.bind('<ButtonRelease>',self.click456)
         btn6.pack(side='top',expand=True,fill='x',padx=10,pady=15)
         bottomFrame1.pack(padx=10,pady=10,ipadx=10,ipady=10,expand=True,fill='x',side='left')
+        #<Motion> 跟 <Enter> 差異是 Motion 一直動 就會一直執行 ，Enter 只會執行一次
+
          #========== end of bottmeframe1 ==================
 
 
