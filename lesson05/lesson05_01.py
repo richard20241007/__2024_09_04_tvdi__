@@ -1,6 +1,6 @@
 from ttkthemes import ThemedTk
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk,Text
 
 
 class Window(ThemedTk):
@@ -44,8 +44,8 @@ class Window(ThemedTk):
         lb_note = ttk.Label(bottomframe,text='說明: ')
         lb_note.grid(row=3,column=0,pady=5,padx=5)
         self.note = tk.StringVar()
-        ent_note = ttk.Entry(bottomframe,textvariable=self.note)
-        ent_note.grid(row=3,column=1,rowspan=2,pady=5,padx=5)
+        ent_note = Text(bottomframe,height=5,width=40)
+        ent_note.grid(row=3,column=1,rowspan=2,pady=5,padx=5,sticky='nsew')
         bottomframe.columnconfigure(index=0,weight=1)
         bottomframe.columnconfigure(index=1,weight=3)
         bottomframe.rowconfigure(index=3,weight=1)
