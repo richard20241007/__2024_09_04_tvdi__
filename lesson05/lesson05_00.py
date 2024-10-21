@@ -117,4 +117,9 @@ if __name__=='__main__':
     show_lb（不加 self）：如果不使用 self，這個變數就只是 __init__ 方法內的區域變數。一旦方法執行完畢，這個變數就會被銷毀，無法在其他方法中使用。
 
 
+    btn1 = ttk.Button(topFrame,text='botton 01',command=self.click1)
+    在command 裡面 的 這個方法 最後沒有括號
+    self.click1() 如果這樣寫 表示馬上執行 而不是binding
+    binding 是按下去才會執行
+
     """
