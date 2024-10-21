@@ -22,6 +22,8 @@ class Window(ThemedTk):
         bottomFrame = ttk.Frame(self,width=600,height=300,borderwidth=1,relief='groove')
         bottomFrame.pack(padx=10,pady=10)
 
+            #frame 裡面如果放東西 width 跟 height 就都會失效 就以內容物來決定長寬
+
         bottomFrame1 = ttk.Frame(bottomFrame,width=200,height=300,borderwidth=1,relief='groove')
         bottomFrame1.pack(side='left',expand=True,fill='x')
         bottomFrame2 = ttk.Frame(bottomFrame,width=200,height=300,borderwidth=1,relief='groove')
